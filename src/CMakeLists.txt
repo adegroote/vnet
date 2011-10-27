@@ -14,6 +14,8 @@ add_library(vnet_common
             vnet_stage.cpp
 )
 
+target_link_libraries(vnet_common ${Boost_LIBRARIES})
+
 set(COMMON_LIBRARIES
     vnet_common
     vnet_filters
