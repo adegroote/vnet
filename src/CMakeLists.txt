@@ -7,6 +7,7 @@ link_directories(${Boost_LIBRARY_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library(vnet_common
+			SHARED
             vnet_client.cpp
             vnet_core.cpp  
             vnet_message.cpp
@@ -19,6 +20,10 @@ set(COMMON_LIBRARIES
     vnet_transports
     ${Boost_LIBRARIES}
 )
+
+file(GLOB INCLUDE_FILES *.h)
+install(FILES ${INCLUDE_FILES} DESTINATION include/vnet)
+install(TARGETS vnet_common DESTINATION lib)
 
 add_subdirectory(filters)
 add_subdirectory(transports)
